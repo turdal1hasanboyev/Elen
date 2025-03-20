@@ -20,12 +20,8 @@ class CategoryAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at',
     )
-    search_fields = (
-        'name',
-    )
-    list_filter = (
-        'is_active',
-    )
+    search_fields = ('name',)
+    list_filter = ('is_active',)
 
     readonly_fields = (
         'id',
@@ -33,9 +29,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'updated_at',
     )
 
-    prepopulated_fields = {
-        'slug': ('name',),
-    }
+    prepopulated_fields = {'slug': ('name',),}
 
     fieldsets = (
         ("Basic Information", {
@@ -64,12 +58,8 @@ class TagAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at',
     )
-    search_fields = (
-        'name',
-    )
-    list_filter = (
-        'is_active',
-    )
+    search_fields = ('name',)
+    list_filter = ('is_active',)
 
     readonly_fields = (
         'id',
@@ -77,9 +67,7 @@ class TagAdmin(admin.ModelAdmin):
         'updated_at',
     )
     
-    prepopulated_fields = {
-        'slug': ('name',),
-    }
+    prepopulated_fields = {'slug': ('name',),}
 
     fieldsets = (
         ("Basic Information", {

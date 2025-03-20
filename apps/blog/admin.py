@@ -26,9 +26,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_filter = ('is_active', 'category', 'author',)
     search_fields = ('name',)
 
-    prepopulated_fields = {
-        'slug': ('name',),
-    }
+    prepopulated_fields = {'slug': ('name',),}
 
     readonly_fields = (
         'created_at',

@@ -24,9 +24,7 @@ class ContactAdmin(admin.ModelAdmin):
         'name',
         'email',
     )
-    list_filter = (
-        'is_active',
-    )
+    list_filter = ('is_active',)
 
     readonly_fields = (
         'id',
