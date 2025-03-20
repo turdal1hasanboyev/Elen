@@ -20,6 +20,7 @@ class CustomUserAdmin(UserAdmin):
         'first_name',
         'last_name',
         'email',
+        'image',
         'is_superuser',
         'is_staff',
         'is_active',
@@ -53,7 +54,7 @@ class CustomUserAdmin(UserAdmin):
         }),
         ("Personal Info", {
             'classes': ('wide',),
-            'fields': ('first_name', 'last_name',),
+            'fields': ('first_name', 'last_name', 'image',),
         }),
         ("Permissions", {
             'classes': ('wide',),

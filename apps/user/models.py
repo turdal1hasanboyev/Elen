@@ -23,6 +23,8 @@ class CustomUser(BaseModel, AbstractUser):
     last_name = models.CharField(max_length=150, null=True, blank=True)
     email = models.EmailField(blank=True, unique=True)
 
+    image = models.ImageField(upload_to='users', null=True, blank=True)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = "email"
