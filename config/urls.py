@@ -24,9 +24,8 @@ from django.views.static import serve
 
 
 urlpatterns = [
-    path('elen/', admin.site.urls), # admin panel
+    path('elen/', admin.site.urls),
 
-    # local paths
     path('', include('apps.common.urls')),
     path('', include('apps.user.urls')),
     path('', include('apps.contact.urls')),
