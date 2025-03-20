@@ -36,5 +36,5 @@ class CustomUser(BaseModel, AbstractUser):
 
     def __str__(self):
         """Return string representation of user."""
-
+        
         return f"{self.email}"

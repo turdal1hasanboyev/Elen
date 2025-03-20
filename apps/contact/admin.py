@@ -10,6 +10,7 @@ class ContactAdmin(admin.ModelAdmin):
     """
 
     model = Contact
+    
     ordering = ('id',)
     list_display = (
         'id',
@@ -26,6 +27,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = (
         'is_active',
     )
+
     readonly_fields = (
         'id',
         'created_at',
@@ -36,7 +38,7 @@ class ContactAdmin(admin.ModelAdmin):
         ("Basic Information", {
             "fields": ("name", "email", 'subject', 'message', "is_active",),
         }),
-        ("Metadata", {
+        ("Meta Data", {
             "fields": ("id", "created_at", "updated_at",),
         }),
     )

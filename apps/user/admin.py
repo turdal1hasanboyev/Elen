@@ -12,6 +12,7 @@ class CustomUserAdmin(UserAdmin):
     """
 
     model = CustomUser
+
     ordering = ('id',)
     list_display = (
         'id',
@@ -36,6 +37,7 @@ class CustomUserAdmin(UserAdmin):
         'is_staff',
         'is_active',
     )
+
     readonly_fields = (
         'id',
         'created_at',
@@ -70,10 +72,10 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         ('Create Super User', {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2'),
+            'fields': ('email', 'password1', 'password2',),
         }),
         ("Permissions", {
             'classes': ('wide',),
-            'fields': ('is_superuser', 'is_staff', 'is_active'),
+            'fields': ('is_superuser', 'is_staff', 'is_active',),
         }),
     )

@@ -10,6 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
     """
 
     model = Category
+
     ordering = ('id',)
     list_display = (
         'id',
@@ -25,11 +26,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = (
         'is_active',
     )
+
     readonly_fields = (
         'id',
         'created_at',
         'updated_at',
     )
+
     prepopulated_fields = {
         'slug': ('name',),
     }
@@ -38,7 +41,7 @@ class CategoryAdmin(admin.ModelAdmin):
         ("Basic Information", {
             "fields": ("name", "slug", "is_active",),
         }),
-        ("Metadata", {
+        ("Meta Data", {
             "fields": ("id", "created_at", "updated_at",),
         }),
     )
@@ -51,6 +54,7 @@ class TagAdmin(admin.ModelAdmin):
     """
 
     model = Tag
+
     ordering = ('-id',)
     list_display = (
         'id',
@@ -66,11 +70,13 @@ class TagAdmin(admin.ModelAdmin):
     list_filter = (
         'is_active',
     )
+
     readonly_fields = (
         'id',
         'created_at',
         'updated_at',
     )
+    
     prepopulated_fields = {
         'slug': ('name',),
     }
@@ -79,7 +85,7 @@ class TagAdmin(admin.ModelAdmin):
         ("Basic Information", {
             "fields": ("name", "slug", "is_active",),
         }),
-        ("Metadata", {
+        ("Meta Data", {
             "fields": ("id", "created_at", "updated_at",),
         }),
     )
