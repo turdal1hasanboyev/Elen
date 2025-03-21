@@ -65,3 +65,28 @@ class TravelPageView(View):
     
 
 travel_as_view = TravelPageView.as_view()
+
+def photography_page_view(request):
+    """
+    A view that renders the photography page.
+    """
+
+    photography_blogs = Blog.objects.filter(
+        is_active=True,
+        category__slug__exact='photography',
+    ).order_by(
+        'id',
+    )
+
+    context = {
+        'photography_blogs': photography_blogs[:12],
+    }
+
+    return render(request=request, template_name='photography.html', context=context)
+
+def about_page_view(request):
+    """
+    A view that renders the about page.
+    """
+
+    return render(request, 'about.html')
