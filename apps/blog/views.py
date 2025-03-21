@@ -61,7 +61,10 @@ class TravelPageView(View):
         if sub_email:
             SubEmail.objects.create(sub_email=sub_email)
             messages.success(request, 'Your email has been successfully subscribed.')
-            return redirect('travel')
+        else:
+            messages.error(request, 'Please enter your email address.')
+
+        return redirect('travel')
     
 
 travel_as_view = TravelPageView.as_view()
@@ -90,3 +93,44 @@ def about_page_view(request):
     """
 
     return render(request, 'about.html')
+
+
+class FashionPageView(View):
+    """
+    A view that renders the fashion page.
+    """
+
+    template_name = 'fashion.html'
+
+    def get(self, request, *args, **kwargs):
+        """
+        Handles GET requests.
+        """
+
+        fashion_blogs = Blog.objects.filter(is_active=True, category__slug__exact='fashion').order_by('id')
+
+        context = {
+            'fashion_blogs': fashion_blogs[:12],
+        }
+
+        return render(request, self.template_name, context)
+    
+    def post(self, request, *args, **kwargs):
+        """
+        Handles POST requests.
+        """
+
+        sub_email = request.POST.get('sub_email')
+
+        url = request.build_absolute_uri()
+
+        if sub_email:
+            SubEmail.objects.create(sub_email=sub_email)
+            messages.success(request, 'Your email has been successfully subscribed.')
+        else:
+            messages.error(request, 'Please enter your email address.')
+
+        return redirect(url)
+    
+
+fashion_as_view = FashionPageView.as_view()
